@@ -1,0 +1,4 @@
+rootProject.name = "Virtual Receptionist"
+include ':app'
+include ':base'
+include ':vituralreceptionist'

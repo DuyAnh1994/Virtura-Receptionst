@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+        applicationId "ai.ftech.virtual_receptionist"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    //kotlin DSL
+    configurations.all() {
+        resolutionStrategy.force "org.antlr:antlr4-runtime:4.7.1"
+        resolutionStrategy.force "org.antlr:antlr4-tool:4.7.1"
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlinVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ext.androidXCoreKTXVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidXAppCompatVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.extJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+    implementation rootProject.ext.constraintLayoutDependency
+    implementation rootProject.ext.materialDependency
+
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':base')
+    implementation project(':vituralreceptionist')
+
+    implementation rootProject.ext.androidXDependencies.viewModel
+    implementation rootProject.ext.androidXDependencies.LiveData
+
+    implementation rootProject.ext.androidXDependencies.cameraCore
+    implementation rootProject.ext.androidXDependencies.camera2
+    implementation rootProject.ext.androidXDependencies.cameraLifecycle
+    implementation rootProject.ext.androidXDependencies.cameraView
+    implementation rootProject.ext.androidXDependencies.cameraExtension
+
+    implementation rootProject.ext.dimenDependencies.sdp
+    implementation rootProject.ext.dimenDependencies.ssp
+
+    implementation rootProject.ext.coroutinesDependencies.core
+    implementation rootProject.ext.coroutinesDependencies.android
+    implementation rootProject.ext.glideDependency.runtime
+    implementation rootProject.ext.glideDependency.transformation
+    implementation rootProject.ext.networkDependencies.retrofit
+    implementation rootProject.ext.networkDependencies.retrofitGsonConverter
+    implementation rootProject.ext.networkDependencies.retrofitConverterMoshi
+    implementation rootProject.ext.networkDependencies.retrofitRxJava
+    implementation rootProject.ext.networkDependencies.logging
+
+
+    implementation rootProject.ext.cameraViewNatario1Dependencies.cameraview
+
+
+//    implementation rootProject.ext.agoraDependencies.agoraNative
+
+//    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
+//    implementation 'com.camerakit:jpegkit:0.1.0'
+//    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+
+//    implementation 'com.github.pedroSG94.rtmp-rtsp-stream-client-java:rtplibrary:1.6.1'
+//    implementation 'com.wowza.gocoder.sdk.android:com.wowza.gocoder.sdk:1.0b7@aar'
+}

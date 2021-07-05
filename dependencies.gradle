@@ -1,0 +1,260 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://google.com" }
+    }
+}
+
+ext {
+
+    // Android
+    androidCompileSdkVersion = 30
+    androidBuildToolsVersion = "30.0.3"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 30
+    androidXCoreKTXVersion = "1.6.0"
+    androidXAppCompatVersion = "1.3.0"
+
+    // Kotlin
+    kotlinVersion = "1.4.32"
+
+    // Test
+    junitVersion = "4.13.2"
+    extJunitVersion = "1.1.3"
+    espressoCoreVersion = "3.4.0"
+
+    // Library
+    constraintLayoutVersion = "2.1.0-beta01"
+    materialVersion = "1.2.1"
+
+    constraintLayoutDependency = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    materialDependency = "com.google.android.material:material:$materialVersion"
+
+
+    /**
+     * androidX
+     */
+    def recyclerViewVersion = "1.2.0-alpha03"
+    def roomVersion = "2.3.0"
+    def lifecycleVersion = "2.3.0"
+    def navigationVersion = "2.4.0-alpha03"
+    def pagingVersion = "2.1.2"
+    def viewPagerVersion = "1.0.0"
+    def cameraXVersion = "1.1.0-alpha06"
+    def cameraViewVersion = "1.0.0-alpha26"
+    def cameraExtensionVersion = "1.0.0-alpha26"
+    def dataStoreVersion = "1.0.0-alpha08"
+    def workVersion = "2.5.0"
+
+    androidXDependencies = [
+            "recyclerview"           : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+
+            "room"                   : "androidx.room:room-runtime:$roomVersion",
+            "roomCompiler"           : "androidx.room:room-compiler:$roomVersion",
+            "roomExtensionCoroutines": "androidx.room:room-ktx:$roomVersion",
+
+//            "lifeCycle"         : "androidx.lifecycle:lifecycle-common:$lifecycleVersion",
+//            "lifeCycleRuntime"  : "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion",
+//            "lifeCycleExtension": "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+//            "lifeCycleCompiler" : "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
+
+            "viewModel"              : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            "LiveData"               : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            "SavedStateViewModel"    : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion",
+
+
+//            "paging"                 : "androidx.paging:paging-runtime:$pagingVersion",
+//            "pagingRxJava"           : "androidx.paging:paging-rxjava2:$pagingVersion",
+
+            "navigationFragment"     : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            "navigationUI"           : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+
+//            "viewpager"              : "androidx.viewpager2:viewpager2:$viewPagerVersion",
+
+            "cameraCore"             : "androidx.camera:camera-core:$cameraXVersion",
+            "camera2"                : "androidx.camera:camera-camera2:$cameraXVersion",
+            "cameraLifecycle"        : "androidx.camera:camera-lifecycle:$cameraXVersion",
+            "cameraView"             : "androidx.camera:camera-view:$cameraViewVersion",
+            "cameraExtension"        : "androidx.camera:camera-extensions:$cameraExtensionVersion",
+
+//            "preferences"            : "androidx.datastore:datastore-preferences:$dataStoreVersion",
+//            "proto"                  : "androidx.datastore:datastore:$dataStoreVersion",
+
+//            "workManager"            : "androidx.work:work-runtime-ktx:$workVersion"
+    ]
+
+    /**
+     * Coroutines
+     */
+    def coroutinesVersion = "1.4.3"
+    coroutinesDependencies = [
+            "core"   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            "android": "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    ]
+
+
+    /**
+     * Glide
+     */
+    def glideVersion = "4.12.0"
+    def glideTransformation = "4.3.0"
+    glideDependency = [
+            "runtime"       : "com.github.bumptech.glide:glide:$glideVersion",
+            "compiler"      : "com.github.bumptech.glide:compiler:$glideVersion",
+            "transformation": "jp.wasabeef:glide-transformations:$glideTransformation"
+    ]
+
+
+    /**
+     * Network
+     */
+    def retrofitVersion = "2.9.0"
+    def okhttpLoggingVersion = "4.7.2"
+    def converterMoshiVersion = "2.6.2"
+    networkDependencies = [
+            "retrofit"              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            "retrofitGsonConverter" : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            "retrofitConverterMoshi": "com.squareup.retrofit2:converter-moshi:$converterMoshiVersion",
+            "retrofitRxJava"        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            "logging"               : "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion"
+    ]
+
+    /**
+     * Gson
+     */
+    def gsonVersion = "2.8.6"
+    gsonDependencies = [
+            "gson": "com.google.code.gson:gson:$gsonVersion"
+    ]
+
+
+    /**
+     * ReactiveX
+     */
+//    def rxJavaVersion = "3.0.7"
+//    def rxAndroidVersion = "3.0.0"
+//    rxDependencies = [
+//            "rxJava"   : "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
+//            "rxAndroid": "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+//    ]
+
+
+    /**
+     * Koin
+     */
+//    def koinV2Version = "2.2.1"
+//    koinV2Dependencies = [
+//            "koin"           : "org.koin:koin-androidx-scope:$koinV2Version",
+//            "koinViewModel"  : "org.koin:koin-androidx-viewmodel:$koinV2Version",
+//            "koinFragment"   : "org.koin:koin-androidx-fragment:$koinV2Version",
+//            "koinWorkManager": "org.koin:koin-androidx-workmanager:$koinV2Version"
+//    ]
+
+
+//    def koinV3Version = "3.0.2"
+//    koinV3Dependencies = [
+//            "android"             : "io.insert-koin:koin-android:$koinV3Version",
+//            "android-ext"         : "io.insert-koin:koin-android-ext:$koinV3Version",
+//            "androidx-workmanager": "io.insert-koin:koin-androidx-workmanager:$koinV3Version"
+//    ]
+
+
+    /**
+     * Dagger-Hilt
+     */
+//    def hiltVersion = "2.33-beta"
+//    def hiltViewModelVersion = "1.0.0-alpha01"
+//    hiltDependencies = [
+//            "hilt"                  : "com.google.dagger:hilt-android:$hiltVersion",
+//            "compilerHilt_kapt"     : "com.google.dagger:hilt-android-compiler:$hiltVersion",
+//            "viewmodel"             : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion",
+//            "compilerViewModel_kapt": "androidx.hilt:hilt-compiler:$hiltViewModelVersion"
+//    ]
+
+
+//    daggerVersion = ""
+//    def daggerDependencies = [
+//            "dagger"                : "com.google.dagger:dagger:$daggerVersion",
+//            "daggerAnnotation"      : "com.google.dagger:dagger-compiler:$daggerVersion",
+//            "daggerAndroid"         : "com.google.dagger:dagger-android:$daggerVersion",
+//            "daggerAndroidProcessor": "com.google.dagger:dagger-android-processor:$daggerVersion",
+//            "daggerSupportAndroid"  : "com.google.dagger:dagger-android-support:$daggerVersion"
+//    ]
+
+
+    /**
+     * Exo-player
+     */
+    def exoPlayerVersion = "2.13.2"
+    def rtspVersion = "2.13.2"
+    exoPlayerDependencies = [
+            "exoplayer": "com.google.android.exoplayer:exoplayer:$exoPlayerVersion",
+            "rtsp": "'com.google.android.exoplayer:exoplayer-rtsp:$rtspVersion'"
+    ]
+
+    /**
+     * Dimension
+     */
+    def sdpVersion = "1.0.6"
+    def sspVersion = "1.0.6"
+    dimenDependencies = [
+            "sdp": "com.intuit.sdp:sdp-android:$sdpVersion",
+            "ssp": "com.intuit.ssp:ssp-android:$sspVersion"
+    ]
+
+    /**
+     * Firebase
+     */
+//    def bomVersion = "28.1.0"
+//    def analyticsVersion = "19.0.0"
+//    def crashlyticsKTXVersion = "18.0.0"
+//    def crashlyticsNDKVersion = "18.0.0"
+//    firebaseDependencies = [
+//            "bom"           : "com.google.firebase:firebase-bom:$bomVersion",
+//            "analytics"     : "com.google.firebase:firebase-analytics-ktx:$analyticsVersion",
+//            "crashlyticsKTX": "com.google.firebase:firebase-crashlytics-ktx:$crashlyticsKTXVersion",
+//            "crashlyticsNDK"   : "com.google.firebase:firebase-crashlytics-ndk:18.0.0:$crashlyticsNDKVersion"
+//    ]
+
+    /**
+     * Sentry
+     */
+//    def sentryVersion = "4.3.0"
+//    sentryDependencies = [
+//            "sentry": "io.sentry:sentry-android:$sentryVersion"
+//    ]
+
+
+    /**
+     * Kotlin-refection
+     */
+    def kotlinRefectionVersion = "1.5.10"
+    refection = [
+            "kotlin": "org.jetbrains.kotlin:kotlin-reflect:$kotlinRefectionVersion"
+    ]
+
+    /**
+     * Event Bus
+     */
+    def eventbusVersion = "3.2.0"
+    eventbusDependencies = [
+            "eventbus": "org.greenrobot:eventbus:$eventbusVersion"
+    ]
+
+    /**
+     *
+     */
+    def agoraVersion = "3.4.0"
+    agoraDependencies = [
+            "agoraNative": "com.github.agorabuilder:native-full-sdk:$agoraVersion"
+    ]
+
+    def cameraViewNatario1Version = "2.7.1"
+    cameraViewNatario1Dependencies = [
+             "cameraview": "com.otaliastudios:cameraview:$cameraViewNatario1Version"
+    ]
+
+
+}

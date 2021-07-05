@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.main.MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVCenter"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <com.otaliastudios.cameraview.CameraView
+            android:id="@+id/cameraView"
+            android:keepScreenOn="true"
+            app:cameraAudio="mono"
+            app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
+            app:cameraEngine="camera2"
+            app:cameraExperimental="true"
+            app:cameraFacing="front"
+            app:cameraFlash="off"
+            app:cameraGestureLongTap="none"
+            app:cameraGesturePinch="zoom"
+            app:cameraGestureScrollHorizontal="none"
+            app:cameraGestureScrollVertical="none"
+            app:cameraGestureTap="autoFocus"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_200sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineVCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cameraMode="video"
+            app:cameraPlaySounds="false"
+            app:cameraPreview="glSurface"
+            app:cameraPreviewFrameRate="22"
+            app:cameraPreviewFrameRateExact="false"
+            app:cameraRequestPermissions="false"
+            app:cameraUseDeviceOrientation="false"
+            app:cameraVideoCodec="h264"
+            app:cameraVideoMaxDuration="10000"
+            app:cameraWhiteBalance="auto"
+            app:layout_constraintDimensionRatio="1:1"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCVModuleP4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="connect CV Module P4"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@id/guidelineVCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:on_safe_click="@{viewListener::onClick}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFptService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="connect Fpt Service"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@id/guidelineVCenter"
+            app:layout_constraintTop_toBottomOf="@id/btnCVModuleP4"
+            app:on_safe_click="@{viewListener::onClick}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnComet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="connect Comet"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@id/guidelineVCenter"
+            app:layout_constraintTop_toBottomOf="@id/btnFptService"
+            app:on_safe_click="@{viewListener::onClick}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="open camera"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@id/guidelineVCenter"
+            app:layout_constraintTop_toBottomOf="@id/btnComet"
+            app:on_safe_click="@{viewListener::onClick}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
