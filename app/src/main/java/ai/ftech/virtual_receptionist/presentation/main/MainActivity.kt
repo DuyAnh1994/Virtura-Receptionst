@@ -4,7 +4,8 @@ import ai.ftech.dev.base.common.BaseActivity
 import ai.ftech.dev.base.common.GetLayoutId
 import ai.ftech.virtual_receptionist.R
 import ai.ftech.virtual_receptionist.databinding.ActivityMainBinding
-import ai.ftech.virtualreceptionist.*
+import ai.ftech.virtualreceptionist.IVirtualReceptionist
+import ai.ftech.virtualreceptionist.VirtualReceptionistManager
 import ai.ftech.virtualreceptionist.communicate.DetectFace
 import ai.ftech.virtualreceptionist.communicate.ICVModuleP4VR
 import ai.ftech.virtualreceptionist.communicate.ICometVR
@@ -20,7 +21,10 @@ import com.otaliastudios.cameraview.VideoResult
 @GetLayoutId(R.layout.activity_main)
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    private val TAG = MainActivity::class.java.simpleName
+    companion object {
+        private val TAG = MainActivity::class.java.simpleName
+        private const val URL_LIVE_STREAM = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov"
+    }
     private val manager : IVirtualReceptionist = VirtualReceptionistManager.getInstance()
     private var isCvModuleP4Connection = MutableLiveData(false)
     private var isFptServiceConnection = MutableLiveData(false)
@@ -32,13 +36,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     )
     private var isCometConnection = MutableLiveData(false)
 
-
     override fun onInitBinding() {
     }
 
     override fun onInitView() {
         manager.test()
-        binding.cameraView.setLifecycleOwner(this)
+//        binding.cameraView.setLifecycleOwner(this)
         registerListenerCameraView()
     }
 
@@ -90,11 +93,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
 
     private fun registerListenerCameraView() {
-        binding.cameraView.addCameraListener(object : CameraListener() {
-            override fun onVideoTaken(result: VideoResult) {
-
-            }
-        })
+//        binding.cameraView.addCameraListener(object : CameraListener() {
+//            override fun onVideoTaken(result: VideoResult) {
+//
+//            }
+//        })
     }
 
     private val cvModuleP4Listener = object : ICVModuleP4VR {

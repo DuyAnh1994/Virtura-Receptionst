@@ -22,38 +22,47 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.40" />
 
-        <com.otaliastudios.cameraview.CameraView
-            android:id="@+id/cameraView"
-            android:keepScreenOn="true"
-            app:cameraAudio="mono"
-            app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
-            app:cameraEngine="camera2"
-            app:cameraExperimental="true"
-            app:cameraFacing="front"
-            app:cameraFlash="off"
-            app:cameraGestureLongTap="none"
-            app:cameraGesturePinch="zoom"
-            app:cameraGestureScrollHorizontal="none"
-            app:cameraGestureScrollVertical="none"
-            app:cameraGestureTap="autoFocus"
-            android:layout_width="@dimen/_150sdp"
+        <!--        <com.otaliastudios.cameraview.CameraView-->
+        <!--            android:id="@+id/cameraView"-->
+        <!--            android:keepScreenOn="true"-->
+        <!--            app:cameraAudio="mono"-->
+        <!--            app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"-->
+        <!--            app:cameraEngine="camera2"-->
+        <!--            app:cameraExperimental="true"-->
+        <!--            app:cameraFacing="front"-->
+        <!--            app:cameraFlash="off"-->
+        <!--            app:cameraGestureLongTap="none"-->
+        <!--            app:cameraGesturePinch="zoom"-->
+        <!--            app:cameraGestureScrollHorizontal="none"-->
+        <!--            app:cameraGestureScrollVertical="none"-->
+        <!--            app:cameraGestureTap="autoFocus"-->
+        <!--            android:layout_width="@dimen/_150sdp"-->
+        <!--            android:layout_height="@dimen/_200sdp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/guidelineVCenter"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:cameraMode="video"-->
+        <!--            app:cameraPlaySounds="false"-->
+        <!--            app:cameraPreview="glSurface"-->
+        <!--            app:cameraPreviewFrameRate="22"-->
+        <!--            app:cameraPreviewFrameRateExact="false"-->
+        <!--            app:cameraRequestPermissions="false"-->
+        <!--            app:cameraUseDeviceOrientation="false"-->
+        <!--            app:cameraVideoCodec="h264"-->
+        <!--            app:cameraVideoMaxDuration="10000"-->
+        <!--            app:cameraWhiteBalance="auto"-->
+        <!--            app:layout_constraintDimensionRatio="1:1"-->
+        <!--            tools:visibility="visible" />-->
+
+        <VideoView
+            android:id="@+id/videoView"
             android:layout_height="@dimen/_200sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guidelineVCenter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:cameraMode="video"
-            app:cameraPlaySounds="false"
-            app:cameraPreview="glSurface"
-            app:cameraPreviewFrameRate="22"
-            app:cameraPreviewFrameRateExact="false"
-            app:cameraRequestPermissions="false"
-            app:cameraUseDeviceOrientation="false"
-            app:cameraVideoCodec="h264"
-            app:cameraVideoMaxDuration="10000"
-            app:cameraWhiteBalance="auto"
-            app:layout_constraintDimensionRatio="1:1"
-            tools:visibility="visible" />
+            android:layout_width="@dimen/_150sdp"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCVModuleP4"
